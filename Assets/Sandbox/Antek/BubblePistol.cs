@@ -9,15 +9,44 @@ public class BubblePistol : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float force;
     public HapticImpulsePlayer xrHapticImpulsePlayer;
+    private GameObject spawnedObject;
+
+    public bool isGrowing;
 
     private void Awake()
     {
+        isGrowing = false;
+    }
+
+    private void FixedUpdate()
+    {
+        if (isGrowing && spawnedObject != null) 
+        {
+            
+            spawnedObject.transform.localScale += new Vector3(0.1f,0.1f,0.1f) * Time.deltaTime;
+            spawnedObject.GetComponent<Bubble>().powerOfFloat += 0.02f;
+            Debug.Log(spawnedObject.GetComponent<Bubble>().powerOfFloat);
+            xrHapticImpulsePlayer.SendHapticImpulse(1, 0.2f,10);
+        }
     }
 
     public void SpawnBubble()
     {
-        GameObject spawnedBubble = Instantiate(bubble, spawnPoint.position, Quaternion.Euler(0,0,0));
-        spawnedBubble.GetComponent<Rigidbody>().AddForce(spawnPoint.up * -1* force);
-        xrHapticImpulsePlayer.SendHapticImpulse(1, 0.2f);
+        spawnedObject = Instantiate(bubble, spawnPoint.position, Quaternion.Euler(0,0,0));
+        isGrowing = true;
+        spawnedObject.GetComponent<Rigidbody>().useGravity = false;
+        spawnedObject.transform.SetParent(gameObject.transform);
+    }
+
+    public void CastBubble()
+    {
+        if (spawnedObject != null)
+        {
+            spawnedObject.transform.SetParent(null);
+            spawnedObject.GetComponent<Rigidbody>().useGravity = true;
+            spawnedObject.GetComponent<Rigidbody>().AddForce(spawnPoint.up * -1* force);
+            isGrowing = false;   
+            
+        }
     }
 }

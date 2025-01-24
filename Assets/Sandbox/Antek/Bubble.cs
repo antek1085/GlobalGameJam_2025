@@ -6,7 +6,7 @@ public class Bubble : MonoBehaviour
     private ConfigurableJoint _fixedJoint;
     private Rigidbody _rigidbody;
     private bool isAttached;
-    [SerializeField] private float powerOfFloat;
+    public float powerOfFloat;
     void Awake()
     {
         _fixedJoint = GetComponent<ConfigurableJoint>();
