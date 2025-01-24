@@ -10,6 +10,7 @@ public class BubblePistol : MonoBehaviour
     [SerializeField] private float force;
     public HapticImpulsePlayer xrHapticImpulsePlayer;
     private GameObject spawnedObject;
+    [SerializeField] private GameObject Fan;
 
     public bool isGrowing;
 
@@ -22,12 +23,21 @@ public class BubblePistol : MonoBehaviour
     {
         if (isGrowing && spawnedObject != null) 
         {
-            
             spawnedObject.transform.localScale += new Vector3(0.1f,0.1f,0.1f) * Time.deltaTime;
             spawnedObject.GetComponent<Bubble>().powerOfFloat += 0.02f;
             Debug.Log(spawnedObject.GetComponent<Bubble>().powerOfFloat);
             xrHapticImpulsePlayer.SendHapticImpulse(1, 0.2f,10);
         }
+    }
+
+    private void Update()
+    {
+        if (isGrowing && spawnedObject != null)
+        {
+           Fan.transform.Rotate(0,0,100);
+        }
+
+        
     }
 
     public void SpawnBubble()
