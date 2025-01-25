@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,7 @@ public class UIMenuScore : MonoBehaviour
         for (int i = scoreList.list.Count -1; i >= 0; i--)
         {
             var panel = Instantiate(scorePanel,transform);
-            panel.GetComponent<Text>().text = scoreList.list[i].ToString();
+            panel.GetComponent<TextMeshProUGUI>().text = scoreList.list[i].ToString();
         }   
     }
 }

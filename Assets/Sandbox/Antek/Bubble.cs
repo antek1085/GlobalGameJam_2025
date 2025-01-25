@@ -7,6 +7,7 @@ public class Bubble : MonoBehaviour
     private Rigidbody _rigidbody;
     private bool isAttached;
     public float powerOfFloat;
+    [SerializeField] SphereCollider _collider;
     void Awake()
     {
         _fixedJoint = GetComponent<ConfigurableJoint>();
@@ -37,6 +38,8 @@ public class Bubble : MonoBehaviour
             _fixedJoint.xMotion = ConfigurableJointMotion.Locked;
             _fixedJoint.yMotion = ConfigurableJointMotion.Locked;
             _fixedJoint.zMotion = ConfigurableJointMotion.Locked;
+            _collider.enabled = false;
+            
         }
         else if (other.tag != "Bubble")
         {
