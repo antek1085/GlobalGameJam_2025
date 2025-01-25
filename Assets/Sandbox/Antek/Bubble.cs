@@ -25,9 +25,6 @@ public class Bubble : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.gameObject.name);
-        Debug.Log(other.gameObject.name);
-        
         if (other.tag == "Interactable")
         {
             _fixedJoint.connectedBody = other.GetComponent<Rigidbody>();
@@ -43,6 +40,8 @@ public class Bubble : MonoBehaviour
         }
         else if (other.tag != "Bubble")
         {
+            transform.GetChild(0).SetParent(null);
+            GetComponent<OnBubblePop>().PlayOnDestroy();
             Destroy(this.gameObject);
         }
     }

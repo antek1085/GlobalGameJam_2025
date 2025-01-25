@@ -7,14 +7,12 @@ public class OnBubblePop : MonoBehaviour
     [SerializeField] private ParticleSystem particleSystem;
     [SerializeField] private AudioClip[] clips;
     [SerializeField] private AudioSource audioSource;
-    private void Update()
+
+    public void PlayOnDestroy()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            particleSystem.Play();
+        particleSystem.Play();
             
-            audioSource.clip = clips[Random.Range(0, clips.Length)];
-            audioSource.Play();
-        }
+        audioSource.clip = clips[Random.Range(0, clips.Length)];
+        audioSource.Play();
     }
 }
