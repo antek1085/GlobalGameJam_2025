@@ -21,5 +21,6 @@ public class DeliverySpot : MonoBehaviour
       spawnedObject.GetComponent<Rigidbody>().useGravity = false;
       spawnedObject.GetComponent<Rigidbody>().detectCollisions = false;
       GetComponentInParent<PointsController>().addPoints(numberOfPoints);
+      GetComponent<Light>().enabled = false;
     }
 }

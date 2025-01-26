@@ -12,6 +12,8 @@ public class RatMovement : MonoBehaviour
     private Mesh planeMesh;
     Bounds bounds;
     public bool isPickedUp = false;
+    private GameObject targetItem;
+    
 
     private void Awake()
     {
@@ -27,13 +29,20 @@ public class RatMovement : MonoBehaviour
         {
             setRatDestination();
         }
+
+        if (targetItem != null && Vector3.Distance(targetItem.transform.position, transform.position) >
+            navMeshAgent.stoppingDistance)
+        {
+            Destroy(targetItem.gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Interactable")
+        if (other.tag == "Interactable" && navMeshAgent.isActiveAndEnabled)
         {
-            Destroy(other.gameObject);
+            targetItem = other.gameObject;
+            navMeshAgent.SetDestination(other.transform.position);
         }
     }
 
