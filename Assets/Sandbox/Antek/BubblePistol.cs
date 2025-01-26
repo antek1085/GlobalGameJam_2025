@@ -24,7 +24,7 @@ public class BubblePistol : MonoBehaviour
         if (isGrowing && spawnedObject != null) 
         {
             spawnedObject.transform.localScale += new Vector3(0.1f,0.1f,0.1f) * Time.deltaTime;
-            spawnedObject.GetComponent<Bubble>().powerOfFloat += 0.02f;
+            spawnedObject.GetComponent<Bubble>().powerOfFloat += 0.04f;
             xrHapticImpulsePlayer.SendHapticImpulse(0.3f, 0.2f,10);
         }
     }

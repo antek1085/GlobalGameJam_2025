@@ -30,8 +30,8 @@ public class RatMovement : MonoBehaviour
             setRatDestination();
         }
 
-        if (targetItem != null && Vector3.Distance(targetItem.transform.position, transform.position) >
-            navMeshAgent.stoppingDistance)
+        if (targetItem != null && Vector3.Distance(targetItem.transform.position, transform.position) <
+            1)
         {
             Destroy(targetItem.gameObject);
         }

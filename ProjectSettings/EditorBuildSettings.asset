@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayLevel.unity
     guid: 54bb44c5de37756439be162d16c2af7c
+  - enabled: 1
+    path: Assets/Sandbox/Antek/EndScene.unity
+    guid: beb34743648d7084185d2fdca17fba5f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4c6dbd838f60b8b4981dd45bd108a685, type: 2}
