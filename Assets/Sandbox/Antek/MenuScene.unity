@@ -1775,7 +1775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d4e0ec60f283c341b03dbf0e42863dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: PlayLevel
 --- !u!224 &1723742234 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5873127271829145615, guid: 07a58de7d4f809547a372034fdc34494, type: 3}
