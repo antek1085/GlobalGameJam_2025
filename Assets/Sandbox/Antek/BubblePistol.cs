@@ -25,7 +25,6 @@ public class BubblePistol : MonoBehaviour
         {
             spawnedObject.transform.localScale += new Vector3(0.1f,0.1f,0.1f) * Time.deltaTime;
             spawnedObject.GetComponent<Bubble>().powerOfFloat += 0.02f;
-            Debug.Log(spawnedObject.GetComponent<Bubble>().powerOfFloat);
             xrHapticImpulsePlayer.SendHapticImpulse(0.3f, 0.2f,10);
         }
     }
