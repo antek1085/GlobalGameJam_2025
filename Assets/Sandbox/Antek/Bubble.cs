@@ -42,8 +42,8 @@ public class Bubble : MonoBehaviour
             
         }
         else if (other.tag != "Bubble")
-        {
-            transform.GetChild(0).SetParent(null);
+        {   
+            //transform.GetChild(0).SetParent(null);
             GetComponent<OnBubblePop>().PlayOnDestroy();
             Destroy(this.gameObject);
         }
